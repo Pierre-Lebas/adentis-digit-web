@@ -31,10 +31,10 @@ export default function Login() {
     
   return (
     <>
-        <div className="login-component" style={{ maxWidth: "400px" }}>
+        <div className="login-component">
             <img src={logo} alt="logo" />
             <h4 className="text-center mb-4">Bienvenue sur Adentis Digit'App</h4>
-            <Card>
+            <Card style={{ minWidth: "400px" }}>
                 <Card.Body>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>

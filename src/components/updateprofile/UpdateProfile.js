@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import './updateprofile.css';
 
 export default function UpdateProfile() {
     const emailRef = useRef();
@@ -40,8 +41,8 @@ export default function UpdateProfile() {
     
   return (
     <>
-        <div class="update-profile-component" className="w-100" style={{ maxWidth: "400px" }}>
-            <Card>
+        <div className="updateprofile-component" >
+            <Card style={{ minWidth: "400px" }}>
                 <Card.Body>
                     <h2 className="text-center mb-4">Modifier le profil</h2>
                     {error && <Alert variant="danger">{error}</Alert>}

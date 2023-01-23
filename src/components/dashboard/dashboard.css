@@ -1,8 +1,13 @@
-.app {
-    flex-wrap: wrap;
+.dashboard-component{
+    height:100vh;
+    display: flex;
     flex-direction: column;
 }
 
-.nav{
-    width: 80vw;
+.tab-content{
+    height:100%;
+}
+
+.card-list{
+    margin: 2rem;
 }
