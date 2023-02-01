@@ -1,0 +1,19 @@
+.editform-component{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height:100vh;
+}
+
+.react-form-builder{
+    width:750px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.formarea{
+    background: white;
+}

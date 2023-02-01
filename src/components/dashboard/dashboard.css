@@ -11,3 +11,11 @@
 .card-list{
     margin: 2rem;
 }
+
+.new-doc-button{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    height: 60px;
+    width: 200px;
+}

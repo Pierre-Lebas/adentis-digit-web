@@ -50,6 +50,11 @@ export default class Demobar extends React.Component {
     });
   }
 
+  _onSubmit(data) {
+    console.log('onSubmit', data);
+    // Place code to post json data to server here
+  }
+
   render() {
     let modalClass = 'modal';
     if (this.state.previewVisible) {
@@ -68,14 +73,13 @@ export default class Demobar extends React.Component {
 
     return (
       <div className="clearfix" style={{ margin: '10px', width: '70%' }}>
-        <h4 className="float-left">Preview</h4>
-        <button className="btn btn-primary float-right" style={{ marginRight: '10px' }} onClick={this.showPreview.bind(this)}>Preview Form</button>
-        <button className="btn btn-default float-right" style={{ marginRight: '10px' }} onClick={this.showShortPreview.bind(this)}>Alternate/Short Form</button>
-        <button className="btn btn-default float-right" style={{ marginRight: '10px' }} onClick={this.showRoPreview.bind(this)}>Read Only Form</button>
+        <button className="btn btn-primary float-right" style={{ marginRight: '10px' }} onClick={this.showPreview.bind(this)}>Prévisualiser</button>
+        <button className="btn btn-light float-right" style={{ marginRight: '10px' }} onClick={this.showShortPreview.bind(this)}>Version alternative</button>
+        <button className="btn btn-light float-right" style={{ marginRight: '10px' }} onClick={this.showRoPreview.bind(this)}>Lecture seule</button>
 
         { this.state.previewVisible &&
           <div className={modalClass}>
-            <div className="modal-dialog modal-lg">
+            <div className="modal-dialog">
               <div className="modal-content">
                 <ReactFormGenerator
                   download_path=""
@@ -85,6 +89,7 @@ export default class Demobar extends React.Component {
                   action_name="Save"
                   form_action="/"
                   form_method="POST"
+                  onSubmit={this._onSubmit}
                   variables={this.props.variables}
                   data={this.state.data} />
 
@@ -97,8 +102,8 @@ export default class Demobar extends React.Component {
         }
 
         { this.state.roPreviewVisible &&
-          <div className={modalClass} role="dialog">
-            <div className="modal-dialog modal-lg" role="document">
+          <div className={roModalClass}>
+            <div className="modal-dialog">
               <div className="modal-content">
                 <ReactFormGenerator
                   download_path=""
@@ -122,7 +127,7 @@ export default class Demobar extends React.Component {
 
         { this.state.shortPreviewVisible &&
           <div className={shortModalClass}>
-            <div className="modal-dialog modal-lg">
+            <div className="modal-dialog">
               <div className="modal-content">
                 <ReactFormGenerator
                   download_path=""

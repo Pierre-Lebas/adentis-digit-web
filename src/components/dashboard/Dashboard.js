@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Alert, Button, Card, Tab, Tabs } from 'react-bootstrap'
+import * as Icon from 'react-bootstrap-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import DocumentCard from '../documentcard/DocumentCard';
@@ -9,7 +10,7 @@ import './dashboard.css';
 export default function Dashboard() {
     /*const [error, setError] = useState("");
     const { currentUser, logout } = useAuth();
-    const navigate = useNavigate();
+    
 
     async function handleLogout(){
         setError('');
@@ -21,6 +22,11 @@ export default function Dashboard() {
             setError('Failed to Log out')
         }
     }*/
+    const navigate = useNavigate();
+
+    function newDoc(){
+        navigate('/edit-form');
+    }
 
   return (
     <>
@@ -31,6 +37,7 @@ export default function Dashboard() {
                     <div className="card-list">
                         <DocumentCard></DocumentCard>
                     </div>
+                    <Button className="new-doc-button" variant="primary" onClick={newDoc}><span><Icon.ClipboardPlus/></span> Nouveau document</Button>
                 </Tab>
                 <Tab eventKey="not-submited-doc" title="Non soumis">
                     <div className="card-list">
